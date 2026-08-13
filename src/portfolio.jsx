@@ -26,65 +26,73 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/salem-amortegui-651191171/";
 const CV_URL = "/CV_Salem_Amortegui_2026_EN.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
 
 const FILTERS = [
-  { key: "all", label: "Todos" },
-  { key: "manual", label: "Manual & UX" },
+  { key: "all", label: "All" },
+  { key: "manual", label: "Manual Testing" },
   { key: "api", label: "API Testing" },
-  { key: "e2e", label: "E2E Automatizado" },
+  { key: "e2e", label: "E2E Automated" },
+  { key: "db", label: "Data Base Validation" },
+  { key: "Cross", label: "Cross-Browser & Mobile" },
+  { key: "Integration", label: "Integration Testing" },
+  { key: "Exploratory", label: "Exploratory Testing" },
+  { key: "Performance", label: "Perfomance Testing" },
 ];
 
 const PROJECTS = [
   {
     id: "bitacora",
-    title: "Couples Binnacle",
+    title: "Couples Binnacle App",
     status: "pass",
-    statusLabel: "En producción",
-    category: "manual",
+    statusLabel: "In Production",
+    category: ["manual", "db"],
     categoryLabel: "Manual & UX",
-    command: "$ qa --project=bitacora-parejas --suite=ux",
+    command: "$ qa --project=cookies-and-mushrooms --suite=full-e2e",
     description:
-      "Aplicación web enfocada en UX/UI y persistencia para el registro de momentos y hábitos compartidos.",
-    stackDev: ["React", "Tailwind CSS", "Supabase", "Node.js"],
+      "Interactive Neo-Brutalist web application designed for couple milestone tracking. Features asynchronous CRUD synchronization with Supabase, custom responsive UI layouts, and automated background data migration.",
+    stackDev: ["React (Vite)", "Custom CSS", "Supabase (PostgreSQL)", "Vercel"],
     qaTesting: [
-      "Pruebas funcionales y manuales de UX/UI",
-      "Validación de Responsive",
-      "Verificación de manejo de estado",
+      "Functional & Async CRUD Validation",
+      "Database & Integration Validation",
+      "Automated Expiration Logic Testing",
+      "UI/UX Responsive Testing",
+      "Manual Testing (Mobile & Web)",
     ],
-    qaTools: ["Chrome DevTools", "Postman"],
+    qaTools: ["Chrome DevTools", "Postman", "Supabase Dashboard", "React Developer Tools",],
   },
   {
     id: "cleancheck",
-    title: "CleanCheck App",
+    title: "Home Quality App",
     status: "pass",
-    statusLabel: "En producción",
-    category: "api",
+    statusLabel: "In Production",
+    category: ["manual", "db"],
     categoryLabel: "API Testing",
-    command: "$ qa --project=cleancheck-app --suite=api",
+    command: "$ qa --project=cleancheck-app --suite=e2e-and-integration",
     description:
-      "Herramienta de gestión y control operativo para inspección y auditoría de protocolos de aseo y limpieza.",
-    stackDev: ["React", "Tailwind CSS", "API REST"],
+      "Operational management and control platform built to digitize property maintenance, cleaning checklists, and real-time inventory tracking. Rigorously tested to ensure data integrity and seamless cross-device performance for remote management.",
+    stackDev: ["React (Vite)", "Tailwind CSS", "Supabase (PostgreSQL)", "Vercel"],
     qaTesting: [
-      "Pruebas de integración de API",
-      "Verificación de endpoints",
-      "Validación de reglas de negocio en flujos críticos",
+      "UI/UX Responsive Testing",
+      "Database & Integration Validation",
+      "Role-Based Access Control (RBAC)",
+      "Manual Testing (Mobile & Web)",
     ],
-    qaTools: ["Postman", "Manual testing (mobile)"],
+    qaTools: ["Postman", "React Developer Tools", "Chrome DevTools"],
   },
   {
     id: "pockets",
     title: "Pockets",
     status: "running",
-    statusLabel: "En construcción / Beta activa",
-    category: "e2e",
+    statusLabel: "In Building",
+    category: ["e2e", "db"],
     categoryLabel: "E2E Automatizado",
     command: "$ qa --project=pockets-budget --suite=e2e",
     description:
-      "Plataforma de gestión financiera personal y control presupuestario con arquitectura modular.",
-    stackDev: ["React", "Tailwind CSS", "Estado global"],
+      "Pockets transforms every paycheck into a clear financial plan, helping users understand where every unit of money should go before it is actually spent.",
+    stackDev: ["React", "Tailwind CSS"],
     qaTesting: [
       "Automatización E2E de flujos principales (balances, formularios)",
       "Pruebas de regresión",
     ],
-    qaTools: ["Playwright / Selenium", "Jest"],
+    qaTools: ["Playwright", "Jest"],
   },
 ];
 
@@ -160,7 +168,11 @@ export default function Portfolio() {
   const visibleProjects =
     activeFilter === "all"
       ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeFilter);
+      : PROJECTS.filter((p) =>
+        Array.isArray(p.category)
+          ? p.category.includes(activeFilter)
+          : p.category === activeFilter
+      );
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 antialiased">
@@ -199,10 +211,10 @@ export default function Portfolio() {
 
           <nav className="hidden items-center gap-8 sm:flex">
             {[
-              ["sobre-mi", "Sobre mí"],
+              ["sobre-mi", "About me"],
               ["skills", "Skills"],
-              ["proyectos", "Proyectos"],
-              ["contacto", "Contacto"],
+              ["proyectos", "Projects"],
+              ["contacto", "Contact"],
             ].map(([id, label]) => (
               <button
                 key={id}
@@ -235,7 +247,7 @@ export default function Portfolio() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
               </span>
               <span className="font-mono-ui text-xs text-slate-300">
-                Disponible para nuevas oportunidades
+                Available for new opportunities
               </span>
             </div>
 
@@ -249,9 +261,8 @@ export default function Portfolio() {
             </p>
 
             <p className="mt-6 max-w-lg text-base leading-relaxed text-slate-400">
-              Construyo interfaces sólidas y me aseguro de que funcionen
-              exactamente como deben, antes de que lleguen a producción.
-              Software de calidad no es un accidente: se prueba.
+              I design robust test strategies and automated suites to ensure applications work
+              flawlessly before hitting production. Are we building the right product and the product right?
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -259,7 +270,7 @@ export default function Portfolio() {
                 onClick={() => scrollTo("proyectos")}
                 className="inline-flex items-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03] hover:bg-emerald-300"
               >
-                Ver Proyectos
+                View Projects
                 <ArrowDown className="h-4 w-4" />
               </button>
               <a
@@ -268,7 +279,7 @@ export default function Portfolio() {
                 className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-white/20 hover:bg-white/10"
               >
                 <Download className="h-4 w-4" />
-                Descargar CV
+                Download CV
               </a>
             </div>
 
@@ -349,17 +360,13 @@ export default function Portfolio() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <Eyebrow>$ cat about.md</Eyebrow>
           <h2 className="font-display text-2xl font-bold text-slate-50 sm:text-3xl">
-            Sobre mí
+            About me
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
-            Soy un Desarrollador de Software con un enfoque híbrido: construyo
-            interfaces con React y Tailwind CSS, y aplico una mentalidad de{" "}
-            <span className="text-slate-200">QA Engineer</span> para
-            asegurar que cada flujo, endpoint y caso límite funcione como se
-            espera. Combino desarrollo frontend moderno con automatización de
-            pruebas E2E y testing de APIs, cerrando la brecha entre{" "}
-            <span className="text-emerald-400">construir</span> software y{" "}
-            <span className="text-emerald-400">confiar</span> en él.
+            3 years of experience combining <span className="text-slate-200">meticulous manual testing</span> for
+            complex edge cases with <span className="text-slate-200">scalable automation</span> for fast regression.
+            I engineer end-to-end test strategies—covering web UI, REST APIs, and databases—ensuring{" "}
+            <span className="text-emerald-400">total software quality</span> from every angle.
           </p>
         </div>
       </section>
@@ -369,7 +376,7 @@ export default function Portfolio() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <Eyebrow>$ skills --list</Eyebrow>
           <h2 className="font-display text-2xl font-bold text-slate-50 sm:text-3xl">
-            Habilidades Técnicas
+            Technical Skills
           </h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -408,10 +415,10 @@ export default function Portfolio() {
       {/* PROYECTOS */}
       <section id="proyectos" className="border-t border-white/10 bg-zinc-950/40">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <Eyebrow>$ ls ./proyectos --status</Eyebrow>
+          <Eyebrow>$ ls ./projects --status</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="font-display text-2xl font-bold text-slate-50 sm:text-3xl">
-              Proyectos
+              Projects
             </h2>
           </div>
 
@@ -469,7 +476,7 @@ export default function Portfolio() {
                   onClick={() => setSelectedProject(project)}
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 transition-colors hover:text-emerald-300"
                 >
-                  Ver Detalles
+                  View Details
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
               </div>
@@ -595,7 +602,7 @@ export default function Portfolio() {
                 <div className="mb-3 flex items-center gap-2">
                   <Code2 className="h-4 w-4 text-slate-500" />
                   <h4 className="font-mono-ui text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Stack de Desarrollo
+                    Dev Stack
                   </h4>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
@@ -614,7 +621,7 @@ export default function Portfolio() {
                 <div className="mb-3 flex items-center gap-2">
                   <Wrench className="h-4 w-4 text-slate-500" />
                   <h4 className="font-mono-ui text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Herramientas de QA
+                    QA Tools
                   </h4>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
