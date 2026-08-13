@@ -19,11 +19,11 @@ import {
 // DATOS EDITABLES — reemplaza estos valores con los tuyos
 // ─────────────────────────────────────────────────────────
 const NAME = "Salem Amortegui";
-const ROLE = "Desarrollador de Software & QA Engineer";
+const ROLE = "Software Testing Engineer";
 const EMAIL = "salemamortegui@gmail.com";
 const GITHUB_URL = "https://github.com/SalemAmorteg";
 const LINKEDIN_URL = "https://www.linkedin.com/in/salem-amortegui-651191171/";
-const CV_URL = "/cv.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
+const CV_URL = "/CV_Salem_Amortegui_2026_EN.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
 
 const FILTERS = [
   { key: "all", label: "Todos" },
@@ -35,7 +35,7 @@ const FILTERS = [
 const PROJECTS = [
   {
     id: "bitacora",
-    title: "Bitácora de Parejas",
+    title: "Couples Binnacle",
     status: "pass",
     statusLabel: "En producción",
     category: "manual",
@@ -46,7 +46,7 @@ const PROJECTS = [
     stackDev: ["React", "Tailwind CSS", "Supabase", "Node.js"],
     qaTesting: [
       "Pruebas funcionales y manuales de UX/UI",
-      "Validación de flujos de autenticación",
+      "Validación de Responsive",
       "Verificación de manejo de estado",
     ],
     qaTools: ["Chrome DevTools", "Postman"],
