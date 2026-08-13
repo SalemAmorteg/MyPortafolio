@@ -23,7 +23,7 @@ const ROLE = "Software Testing Engineer";
 const EMAIL = "salemamortegui@gmail.com";
 const GITHUB_URL = "https://github.com/SalemAmorteg";
 const LINKEDIN_URL = "https://www.linkedin.com/in/salem-amortegui-651191171/";
-const CV_URL = "/CV_Salem_Amortegui_2026_EN.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
+const CV_URL = "/cv.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
 
 const FILTERS = [
   { key: "all", label: "Todos" },
@@ -216,7 +216,7 @@ export default function Portfolio() {
 
           <a
             href={CV_URL}
-            download
+            download="CV_Salem_Amortegui_2026.pdf"
             className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-emerald-400/40 hover:text-emerald-300"
           >
             <Download className="h-4 w-4" />
