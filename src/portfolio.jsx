@@ -31,10 +31,8 @@ const FILTERS = [
   { key: "api", label: "API Testing" },
   { key: "e2e", label: "E2E Automated" },
   { key: "db", label: "Data Base Validation" },
-  { key: "Cross", label: "Cross-Browser & Mobile" },
-  { key: "Integration", label: "Integration Testing" },
-  { key: "Exploratory", label: "Exploratory Testing" },
-  { key: "Performance", label: "Perfomance Testing" },
+  { key: "ui", label: "UX/UI Testing" },
+  { key: "performance", label: "Perfomance & Load" },
 ];
 
 const PROJECTS = [
@@ -43,7 +41,7 @@ const PROJECTS = [
     title: "Couples Binnacle App",
     status: "pass",
     statusLabel: "In Production",
-    category: ["manual", "db"],
+    category: ["manual", "db", "ui"],
     categoryLabel: "Manual & UX",
     command: "$ qa --project=cookies-and-mushrooms --suite=full-e2e",
     description:
@@ -63,7 +61,7 @@ const PROJECTS = [
     title: "Home Quality App",
     status: "pass",
     statusLabel: "In Production",
-    category: ["manual", "db"],
+    category: ["manual", "db", "performance", "ui", "api"],
     categoryLabel: "API Testing",
     command: "$ qa --project=cleancheck-app --suite=e2e-and-integration",
     description:
