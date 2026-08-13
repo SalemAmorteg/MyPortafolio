@@ -491,11 +491,10 @@ export default function Portfolio() {
             <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
               <div>
                 <h2 className="font-display text-2xl font-bold text-slate-50 sm:text-3xl">
-                  ¿Construimos algo confiable?
+                  Ready to build software you can trust?
                 </h2>
                 <p className="mt-3 max-w-md text-slate-400">
-                  Disponible para roles de QA Engineer, testing de APIs,
-                  automatización o desarrollo frontend. Escríbeme.
+                  Available for QA Engineering, Software Testing Automation, API Testing, and Quality Assurance roles. Let's connect!
                 </p>
               </div>
 
@@ -545,7 +544,7 @@ export default function Portfolio() {
       <footer className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <p className="font-mono-ui text-xs text-slate-600">
-            $ echo "Gracias por pasar por aquí" — © {new Date().getFullYear()}{" "}
+            $ echo "Thanks for stopping by" — © {new Date().getFullYear()}{" "}
             {NAME}
           </p>
         </div>
