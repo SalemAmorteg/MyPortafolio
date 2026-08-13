@@ -18,11 +18,11 @@ import {
 // ─────────────────────────────────────────────────────────
 // DATOS EDITABLES — reemplaza estos valores con los tuyos
 // ─────────────────────────────────────────────────────────
-const NAME = "Tu Nombre";
+const NAME = "Salem Amortegui";
 const ROLE = "Desarrollador de Software & QA Engineer";
-const EMAIL = "tu.email@ejemplo.com";
-const GITHUB_URL = "https://github.com/tu-usuario";
-const LINKEDIN_URL = "https://linkedin.com/in/tu-usuario";
+const EMAIL = "salemamortegui@gmail.com";
+const GITHUB_URL = "https://github.com/SalemAmorteg";
+const LINKEDIN_URL = "https://www.linkedin.com/in/salem-amortegui-651191171/";
 const CV_URL = "/cv.pdf"; // coloca tu CV en /public y ajusta esta ruta si es necesario
 
 const FILTERS = [
