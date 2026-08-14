@@ -96,25 +96,21 @@ const PROJECTS = [
 
 const SKILL_GROUPS = [
   {
-    title: "Frontend",
+    title: "QA & Automation Core",
     icon: Code2,
-    items: ["React", "JavaScript", "Tailwind CSS", "HTML5 / CSS3"],
+    items: ["Playwright", "Cypress", "Selenium", "CI/CD", "Test Case Design", "Exploratory Testing", "E2E & Regression", "Jira"],
   },
   {
-    title: "QA & Testing",
+    title: "API, Performance & DB",
     icon: FlaskConical,
     items: [
-      "Playwright",
-      "Selenium",
-      "Postman (API Testing)",
-      "Pruebas Manuales",
-      "Diseño de Casos de Prueba",
+      "Postman (REST APIs)", "JMeter (Performance)", "SQL & Database Validation", "PostgreSQL", "Supabase",
     ],
   },
   {
-    title: "Herramientas",
+    title: "Languages & Ecosystem",
     icon: Wrench,
-    items: ["Git", "GitHub", "Vercel", "VS Code"],
+    items: ["Java", "Python", "C#", "JavaScript", "React", "Tailwind CSS", "Git / GitHub", "Azure DevOps", "AI-Oriented"],
   },
 ];
 
@@ -491,7 +487,7 @@ export default function Portfolio() {
             <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
               <div>
                 <h2 className="font-display text-2xl font-bold text-slate-50 sm:text-3xl">
-                  Ready to build software you can trust?
+                  Are you ready to build software you can trust?
                 </h2>
                 <p className="mt-3 max-w-md text-slate-400">
                   Available for QA Engineering, Software Testing Automation, API Testing, and Quality Assurance roles. Let's connect!
